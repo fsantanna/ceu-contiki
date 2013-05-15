@@ -1,0 +1,7 @@
+@include(contiki.ceu)
+
+var int i = 0;
+every 1s do
+    i = i + 1;
+    _leds_on(i);
+end

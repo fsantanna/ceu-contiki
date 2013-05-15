@@ -1,0 +1,14 @@
+/*{-{*/
+
+native nohold _printf();
+
+native _leds_on();
+
+native _uip_ipaddr_t;
+native _simple_udp_receive_t = 0;
+native _simple_udp_connection;
+native nohold _uip_create_linklocal_allnodes_mcast();
+native _simple_udp_sendto();
+native _simple_udp_register_();
+
+/*}-}*/

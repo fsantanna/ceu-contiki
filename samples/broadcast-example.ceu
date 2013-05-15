@@ -1,0 +1,30 @@
+@include(contiki.ceu)
+
+native _DT, _UDP_PORT;
+native do
+    #include "lib/random.h"
+    #define DT (3 + random_rand()%20)
+    #define UDP_PORT 1234
+end
+
+var _simple_udp_connection broadcast_connection;
+_simple_udp_register_(&broadcast_connection, _UDP_PORT,
+                      null, _UDP_PORT)
+    finalize with nothing; end;         // no unreg
+
+input _simple_udp_receive_t* SIMPLE_UDP_RECEIVE;
+
+par do
+    var _simple_udp_receive_t* udp;
+    every udp = SIMPLE_UDP_RECEIVE do
+        _printf("Data received on port %d from port %d with length %d\n",
+                 udp:receiver_port, udp:sender_port, udp:datalen);
+    end
+with
+    var _uip_ipaddr_t addr;
+    every (_DT)s do
+        _uip_create_linklocal_allnodes_mcast(&addr);
+        _simple_udp_sendto(&broadcast_connection, "Test", 4, &addr)
+            finalize with nothing; end;     // string global
+    end
+end

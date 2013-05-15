@@ -1,0 +1,7 @@
+obj_*/
+_ceu_*
+symbols.*
+contiki-*
+contiki.cooja
+contiki.sky
+.*.swp
