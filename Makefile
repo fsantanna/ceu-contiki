@@ -9,5 +9,6 @@ CFLAGS+= -DUIP_CONF_IPV6_RPL
 
 ceu:
 	ceu $(CEUFILE) --m4 --defs-file _ceu_defs.h
+	touch contiki.c
 
 include $(CONTIKI)/Makefile.include

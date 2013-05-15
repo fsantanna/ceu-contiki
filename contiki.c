@@ -44,7 +44,9 @@ static void ceu_contiki_timer_cb (void* ptr) {
 
 /****************************************************************************/
 
-#ifdef CEU_FUN_leds_on
+#if defined(CEU_FUN_leds_on)  ||    \
+    defined(CEU_FUN_leds_off) ||    \
+    defined(CEU_FUN_leds_toggle)
 
 #include "dev/leds.h"
 

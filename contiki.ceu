@@ -2,7 +2,9 @@
 
 native nohold _printf();
 
-native _leds_on();
+native nohold _leds_on(), _leds_off(),
+              _leds_toggle();
+native _LEDS_BLUE;
 
 native _uip_ipaddr_t;
 native _simple_udp_receive_t = 0;

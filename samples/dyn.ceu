@@ -1,8 +1,8 @@
-native _Leds_led0Toggle();
+@include(contiki.ceu)
 
 class T (10) with
 do
-    _Leds_led0Toggle();
+    _leds_toggle(_LEDS_BLUE);
     await 2s111ms;
 end
 
