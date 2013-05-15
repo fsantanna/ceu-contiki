@@ -1,0 +1,14 @@
+native _Leds_led0Toggle();
+
+class T (10) with
+do
+    _Leds_led0Toggle();
+    await 2s111ms;
+end
+
+do
+    loop do
+        await 1s;
+        spawn T;
+    end
+end
